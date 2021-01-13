@@ -20,6 +20,7 @@
         <sunshine-core.version>1.0.0</sunshine-core.version>
         <sunshine-web.version>1.0.0</sunshine-web.version>
         <sunshine-util.version>1.0.0-SNAPSHOT</sunshine-util.version>
+        <guava.version>29.0-jre</guava.version>
     </properties>
 
     <modules>
@@ -96,6 +97,11 @@
                 <version>${project.version}</version>
             </dependency>
             <!--Project modules End-->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>
@@ -149,27 +155,27 @@
                 </configuration>
             </plugin>
         </plugins>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.yml</include>
-                    <include>**/*.xml</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <!-- 是否过滤资源文件，替换maven属性 - 不过滤，否则过滤xlsx文件导致乱码，XSSFWork读取格式异常 -->
-                <filtering>false</filtering>
-                <includes>
-                    <include>**/*</include>
-                    <include>mybatis/*.xml</include>
-                    <include>mapper/*.xml</include>
-                </includes>
-            </resource>
-        </resources>
+<!--        <resources>-->
+<!--            <resource>-->
+<!--                <directory>src/main/java</directory>-->
+<!--                <includes>-->
+<!--                    <include>**/*.properties</include>-->
+<!--                    <include>**/*.yml</include>-->
+<!--                    <include>**/*.xml</include>-->
+<!--                </includes>-->
+<!--                <filtering>false</filtering>-->
+<!--            </resource>-->
+<!--            <resource>-->
+<!--                <directory>src/main/resources</directory>-->
+<!--                &lt;!&ndash; 是否过滤资源文件，替换maven属性 - 不过滤，否则过滤xlsx文件导致乱码，XSSFWork读取格式异常 &ndash;&gt;-->
+<!--                <filtering>false</filtering>-->
+<!--                <includes>-->
+<!--                    <include>**/*</include>-->
+<!--                    <include>mybatis/*.xml</include>-->
+<!--                    <include>mapper/*.xml</include>-->
+<!--                </includes>-->
+<!--            </resource>-->
+<!--        </resources>-->
 
     </build>
     <repositories>

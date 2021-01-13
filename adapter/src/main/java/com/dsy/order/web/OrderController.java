@@ -1,8 +1,9 @@
 package com.dsy.order.web;
 
-import com.dsy.order.api.OrderService;
 import com.dsy.order.command.OrderAddCmd;
 import com.dsy.order.query.OrderListQry;
+import com.dsy.order.service.OrderAppService;
+import com.dsy.order.vo.OrderVO;
 import com.dsy.sunshine.core.Response;
 import com.dsy.sunshine.core.ResponseWithData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * @author Mr.Yangxiufeng
@@ -22,18 +24,17 @@ import javax.validation.Valid;
 public class OrderController {
 
     @Autowired
-    private OrderService orderService;
+    private OrderAppService orderAppService;
 
     @PostMapping("addOrder")
     public Response addOrder(@RequestBody @Valid OrderAddCmd cmd){
-        orderService.addOrder(cmd);
+        orderAppService.addOrder(cmd);
         return Response.buildSuccess();
     }
 
     @GetMapping("listOrder")
-    public ResponseWithData listOrder(@Valid OrderListQry qry){
-
-        return ResponseWithData.buildSuccess();
+    public ResponseWithData<List<OrderVO>> listOrder(@Valid OrderListQry qry){
+        return orderAppService.listOrder(qry);
     }
 
 }

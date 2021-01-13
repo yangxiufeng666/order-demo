@@ -2,10 +2,8 @@ package com.dsy.order.executor.command;
 
 
 import com.dsy.order.command.OrderAddCmd;
-import com.dsy.order.gateway.database.OrderItemPOMapper;
-import com.dsy.order.gateway.database.OrderPOMapper;
-import com.dsy.order.gateway.database.po.OrderItemPO;
-import com.dsy.sunshine.core.Response;
+import com.dsy.order.converter.OrderConverter;
+import com.dsy.order.domain.ability.OrderDomainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,13 +16,10 @@ import org.springframework.stereotype.Component;
 public class OrderAddCmdExe {
 
     @Autowired
-    private OrderPOMapper orderPOMapper;
+    private OrderDomainService orderDomainService;
 
-    @Autowired
-    private OrderItemPOMapper orderItemPOMapper;
-
-    public Response executor(OrderAddCmd cmd){
-        return null;
+    public void executor(OrderAddCmd cmd){
+         orderDomainService.addOrder(OrderConverter.toEntity(cmd));
     }
 
 }

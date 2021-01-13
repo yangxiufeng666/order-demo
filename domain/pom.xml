@@ -20,5 +20,9 @@
             <groupId>com.dsy.order</groupId>
             <artifactId>client</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.dsy.order</groupId>
+            <artifactId>infrastructure</artifactId>
+        </dependency>
     </dependencies>
 </project>

@@ -26,7 +26,7 @@ public class OrderAddCmd extends Command {
     private List<GoodsInfo> goods;
 
     @Data
-    static class GoodsInfo{
+    public static class GoodsInfo{
         int goodsId;
         @NotEmpty(message = "商品名称不能为空")
         String goodsName;
@@ -35,7 +35,7 @@ public class OrderAddCmd extends Command {
     }
 
     @Data
-    static class Consignee{
+    public static class Consignee{
         @NotEmpty(message = "收货人不能为空")
         String name;
         @NotEmpty(message = "收货电话不能为空")

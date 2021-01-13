@@ -15,7 +15,7 @@ public class OrderItemPO {
 
     private String goodsQuantity;
 
-    private Long goodsPrice;
+    private Integer goodsPrice;
 
     private Date createTime;
 
@@ -67,11 +67,11 @@ public class OrderItemPO {
         this.goodsQuantity = goodsQuantity == null ? null : goodsQuantity.trim();
     }
 
-    public Long getGoodsPrice() {
+    public Integer getGoodsPrice() {
         return goodsPrice;
     }
 
-    public void setGoodsPrice(Long goodsPrice) {
+    public void setGoodsPrice(Integer goodsPrice) {
         this.goodsPrice = goodsPrice;
     }
 

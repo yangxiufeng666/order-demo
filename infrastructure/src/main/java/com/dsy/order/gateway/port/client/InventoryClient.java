@@ -1,4 +1,6 @@
-package com.dsy.order.gateway.client;
+package com.dsy.order.gateway.port.client;
+
+import com.dsy.sunshine.core.Response;
 
 /**
  * @author Mr.Yangxiufeng
@@ -6,4 +8,7 @@ package com.dsy.order.gateway.client;
  * @time 15:48
  */
 public interface InventoryClient {
+
+    Response check();
+
 }

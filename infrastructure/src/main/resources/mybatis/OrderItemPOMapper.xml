@@ -8,7 +8,7 @@
     <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
     <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
     <result column="goods_quantity" jdbcType="VARCHAR" property="goodsQuantity" />
-    <result column="goods_price" jdbcType="DECIMAL" property="goodsPrice" />
+    <result column="goods_price" jdbcType="INTEGER" property="goodsPrice" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
   </resultMap>
   <sql id="Base_Column_List">
@@ -30,7 +30,7 @@
       goods_price, create_time)
     values (#{id,jdbcType=INTEGER}, #{orderId,jdbcType=INTEGER}, #{orderSn,jdbcType=VARCHAR}, 
       #{goodsId,jdbcType=INTEGER}, #{goodsName,jdbcType=VARCHAR}, #{goodsQuantity,jdbcType=VARCHAR}, 
-      #{goodsPrice,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP})
+      #{goodsPrice,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.dsy.order.gateway.database.po.OrderItemPO">
     insert into order_item
@@ -80,7 +80,7 @@
         #{goodsQuantity,jdbcType=VARCHAR},
       </if>
       <if test="goodsPrice != null">
-        #{goodsPrice,jdbcType=DECIMAL},
+        #{goodsPrice,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
@@ -106,7 +106,7 @@
         goods_quantity = #{goodsQuantity,jdbcType=VARCHAR},
       </if>
       <if test="goodsPrice != null">
-        goods_price = #{goodsPrice,jdbcType=DECIMAL},
+        goods_price = #{goodsPrice,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -121,7 +121,7 @@
       goods_id = #{goodsId,jdbcType=INTEGER},
       goods_name = #{goodsName,jdbcType=VARCHAR},
       goods_quantity = #{goodsQuantity,jdbcType=VARCHAR},
-      goods_price = #{goodsPrice,jdbcType=DECIMAL},
+      goods_price = #{goodsPrice,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>

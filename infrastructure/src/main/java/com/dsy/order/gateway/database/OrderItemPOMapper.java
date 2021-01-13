@@ -2,6 +2,8 @@ package com.dsy.order.gateway.database;
 
 import com.dsy.order.gateway.database.po.OrderItemPO;
 
+import java.util.List;
+
 public interface OrderItemPOMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,6 @@ public interface OrderItemPOMapper {
     int updateByPrimaryKeySelective(OrderItemPO record);
 
     int updateByPrimaryKey(OrderItemPO record);
+
+    int insertAll(List<OrderItemPO> itemPOList);
 }

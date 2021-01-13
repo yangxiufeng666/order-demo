@@ -2,12 +2,12 @@ package com.dsy.order.gateway.database.po;
 
 import java.util.Date;
 
-public class OrderPO {
+public class OrderInfoPO {
     private Integer id;
 
     private String orderSn;
 
-    private Long totalPrice;
+    private Integer totalPrice;
 
     private Date createTime;
 
@@ -27,11 +27,11 @@ public class OrderPO {
         this.orderSn = orderSn == null ? null : orderSn.trim();
     }
 
-    public Long getTotalPrice() {
+    public Integer getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(Long totalPrice) {
+    public void setTotalPrice(Integer totalPrice) {
         this.totalPrice = totalPrice;
     }
 

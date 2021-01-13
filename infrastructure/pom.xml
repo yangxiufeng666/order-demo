@@ -24,6 +24,14 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.dsy.sunshine</groupId>
+            <artifactId>sunshine-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.dsy.order</groupId>
+            <artifactId>client</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
