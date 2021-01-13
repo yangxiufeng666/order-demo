@@ -1,0 +1,39 @@
+package com.dsy.order.web;
+
+import com.dsy.order.api.OrderService;
+import com.dsy.order.command.OrderAddCmd;
+import com.dsy.order.query.OrderListQry;
+import com.dsy.sunshine.core.Response;
+import com.dsy.sunshine.core.ResponseWithData;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
+
+/**
+ * @author Mr.Yangxiufeng
+ * @date 2021-01-12
+ * @time 9:21
+ */
+@RestController
+public class OrderController {
+
+    @Autowired
+    private OrderService orderService;
+
+    @PostMapping("addOrder")
+    public Response addOrder(@RequestBody @Valid OrderAddCmd cmd){
+        orderService.addOrder(cmd);
+        return Response.buildSuccess();
+    }
+
+    @GetMapping("listOrder")
+    public ResponseWithData listOrder(@Valid OrderListQry qry){
+
+        return ResponseWithData.buildSuccess();
+    }
+
+}
