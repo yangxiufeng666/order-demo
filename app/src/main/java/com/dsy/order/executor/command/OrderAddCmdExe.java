@@ -3,7 +3,7 @@ package com.dsy.order.executor.command;
 
 import com.dsy.order.command.OrderAddCmd;
 import com.dsy.order.converter.OrderConverter;
-import com.dsy.order.domain.ability.OrderDomainService;
+import com.dsy.order.ability.OrderDomainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -1,6 +1,6 @@
-package com.dsy.order.domain.converter;
+package com.dsy.order.converter;
 
-import com.dsy.order.domain.model.Order;
+import com.dsy.order.model.Order;
 import com.dsy.order.gateway.database.po.OrderInfoPO;
 import com.dsy.order.gateway.database.po.OrderItemPO;
 import com.dsy.order.util.BeanConvertUtils;

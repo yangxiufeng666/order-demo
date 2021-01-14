@@ -1,4 +1,4 @@
-package com.dsy.order.domain.model;
+package com.dsy.order.model;
 
 import com.dsy.sunshine.core.ValueObject;
 import lombok.Data;

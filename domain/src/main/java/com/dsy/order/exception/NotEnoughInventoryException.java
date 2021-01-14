@@ -1,4 +1,4 @@
-package com.dsy.order.domain.exception;
+package com.dsy.order.exception;
 
 /**
  * @author Mr.Yangxiufeng

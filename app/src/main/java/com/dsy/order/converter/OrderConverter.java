@@ -1,9 +1,9 @@
 package com.dsy.order.converter;
 
 import com.dsy.order.command.OrderAddCmd;
-import com.dsy.order.domain.model.Consignee;
-import com.dsy.order.domain.model.Order;
-import com.dsy.order.domain.model.OrderItem;
+import com.dsy.order.model.Consignee;
+import com.dsy.order.model.Order;
+import com.dsy.order.model.OrderItem;
 import com.dsy.order.util.BeanConvertUtils;
 import org.springframework.beans.BeanUtils;
 
