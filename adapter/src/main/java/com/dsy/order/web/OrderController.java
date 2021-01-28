@@ -7,6 +7,7 @@ import com.dsy.order.vo.OrderVO;
 import com.dsy.sunshine.core.Response;
 import com.dsy.sunshine.core.ResponseWithData;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,6 +23,9 @@ import java.util.List;
  */
 @RestController
 public class OrderController {
+
+    @Value("${test.txt}")
+    private String testTxt;
 
     @Autowired
     private OrderAppService orderAppService;
