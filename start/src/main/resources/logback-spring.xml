@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <contextName>${APP_NAME}</contextName>
+    <springProperty name="PLATFORM" scope="context" source="log.platform"/>
+    <springProperty name="ENV" scope="context" source="log.env"/>
     <springProperty name="APP_NAME" scope="context" source="spring.application.name"/>
     <springProperty name="LOG_FILE" scope="context" source="logging.file" defaultValue="../logs/application/${APP_NAME}"/>
     <springProperty name="LOG_POINT_FILE" scope="context" source="logging.file" defaultValue="../logs/point"/>
@@ -9,7 +11,7 @@
     <springProperty name="LOG_FILEMAXDAY" scope="context" source="logback.filemaxday" defaultValue="7"/>
     <springProperty name="ServerIP" scope="context" source="spring.cloud.client.ip-address" defaultValue="0.0.0.0"/>
     <springProperty name="ServerPort" scope="context" source="server.port" defaultValue="0000"/>
-    <springProperty scope="context" name="spring.log.level" source="spring.log.level"/>
+    <springProperty  name="log.level" scope="context" source="log.level"/>
 
     <!-- 彩色日志 -->
     <!-- 彩色日志依赖的渲染类 -->
@@ -19,15 +21,14 @@
 
     <!-- 彩色日志格式 -->
     <property name="CONSOLE_LOG_PATTERN"
-              value="[${APP_NAME}:${ServerIP}:${ServerPort}] %clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%level){blue} %clr(${PID}){magenta} %clr([%X{requestId}]){yellow} %clr([%thread]){orange} %clr(%logger){cyan} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}" />
-    <property name="CONSOLE_LOG_PATTERN_NO_COLOR" value="[${APP_NAME}:${ServerIP}:${ServerPort}] %d{yyyy-MM-dd HH:mm:ss.SSS} %level ${PID} [%X{requestId}] [%thread] %logger %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}" />
+              value="[${PLATFORM}:${APP_NAME}:${ENV}:${ServerIP}:${ServerPort}] %d{yyyy-MM-dd HH:mm:ss.SSS} %clr(%level){blue} %clr(${PID}){magenta} %clr([%X{requestId}]){yellow} %clr([%thread]){orange} %clr(%logger){cyan} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}" />
+    <property name="CONSOLE_LOG_PATTERN_NO_COLOR" value="[${PLATFORM}:${APP_NAME}:${ENV}:${ServerIP}:${ServerPort}] %d{yyyy-MM-dd HH:mm:ss.SSS} %level ${PID} [%X{requestId}] [%thread] %logger %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}" />
 
     <!-- 控制台日志 -->
     <appender name="StdoutAppender" class="ch.qos.logback.core.ConsoleAppender">
         <withJansi>true</withJansi>
         <encoder>
-            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
-<!--            <pattern>[${APP_NAME}:${ServerIP}:${ServerPort}] %clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%level){blue} %clr(${PID}){magenta} %clr([%X{requestId}]){yellow} %clr([%thread]){orange} %clr(%logger){cyan} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}</pattern>-->
+            <pattern>${CONSOLE_LOG_PATTERN_NO_COLOR}</pattern>
             <charset>UTF-8</charset>
         </encoder>
     </appender>
@@ -99,9 +100,8 @@
         <appender-ref ref="audit_log"/>
     </appender>
 
-    <root level="INFO">
+    <root level="${log.level}">
         <appender-ref ref="StdoutAppender"/>
         <appender-ref ref="file_async"/>
     </root>
-
 </configuration>
