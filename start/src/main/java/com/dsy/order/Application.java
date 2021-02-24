@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @date 2021-01-11
  * @time 20:13
  */
-@SpringBootApplication(scanBasePackages = {"com.dsy.order","com.dsy.sunshine.web"})
+@SpringBootApplication
 @MapperScan( basePackages = {"com.dsy.order.gateway.database"})
 @EnableTransactionManagement
 public class Application {
