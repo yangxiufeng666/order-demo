@@ -16,7 +16,7 @@ import java.util.UUID;
  * @date 2021-01-13
  * @time 15:30
  */
-public class OrderConverter {
+public class AppOrderConverter {
 
     public static Order toEntity(OrderAddCmd cmd){
         Consignee consignee = new Consignee();

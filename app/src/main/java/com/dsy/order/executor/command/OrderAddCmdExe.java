@@ -2,7 +2,7 @@ package com.dsy.order.executor.command;
 
 
 import com.dsy.order.command.OrderAddCmd;
-import com.dsy.order.converter.OrderConverter;
+import com.dsy.order.converter.AppOrderConverter;
 import com.dsy.order.ability.OrderDomainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,7 +19,7 @@ public class OrderAddCmdExe {
     private OrderDomainService orderDomainService;
 
     public void executor(OrderAddCmd cmd){
-         orderDomainService.addOrder(OrderConverter.toEntity(cmd));
+         orderDomainService.addOrder(AppOrderConverter.toEntity(cmd));
     }
 
 }
