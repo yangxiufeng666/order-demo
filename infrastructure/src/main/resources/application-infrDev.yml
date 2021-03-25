@@ -1,1 +1,5 @@
 test.txt: hello
+sunshine:
+  catch:
+    exception:
+      enable: true
